@@ -27,25 +27,31 @@ public class Converter
             case "-m":
                 return InchesToM(inches);
             default:
-                Console.WriteLine("Invalid output unit. Please enter one of the following: 'mm','cm', 'm' ");
+                throw new ArgumentException("Invalid output unit. Please enter one of the following: 'mm','cm', 'm' ");
         }
     }
-}
-public class Program
-{
-    public static void Main(string[] args)
+
+    public class Program
     {
-        if (args.Length !=2)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Handling: convert <inches> <output_unit");
-            return;
+            if(args.Contains("-t"))
+            {
+                RunTests();
+                return;
+            }
+            if (args.Length !=2)
+            {
+                Console.WriteLine("Handling: convert <inches> <output_unit");
+                return;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid number");
+            }
         }
-        else
-        {
-            Console.WriteLine("Invalid input. Please enter a valid number");
-        }
+        
     }
-    
 }
 
 Converter converter = new Converter();
@@ -57,3 +63,5 @@ Console.WriteLine($"{inches} inches is equal to:");
 Console.WriteLine($"{Millimeters} millimeters");
 Console.WriteLine($"{Centimeters} centimeters");
 Console.WriteLine($"{Meters} meters");
+
+
