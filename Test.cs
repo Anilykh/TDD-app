@@ -1,6 +1,7 @@
 using NUnit.Framework;
 
-def ConverterTests
+
+
 public class ConverterTests
 {
     private ConverterTests converter;
@@ -13,7 +14,7 @@ public class ConverterTests
     public void InchesToMm_Conversion()
     {
         double result = converter.converter(1, "-mm");
-        Assert.AreEqual(25., result);
+        Assert.AreEqual(25.4, result);
     }
 
     public void InchesToCm_Conversion()
